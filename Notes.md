@@ -35,7 +35,7 @@ Consider the function: f(x)
  
  ### Common Big-o-Notation
  List from best to worst performance:
-   ** O(1) → Constant Complexity**
+   **O(1) → Constant Complexity**
         Constant Time Algorithms: Completes the execution in the same amount of time regardless of its input.
             Examples:
               - Accessing a data point in a list with a known index 
@@ -54,13 +54,13 @@ Consider the function: f(x)
               - Searching a queue
               - Adding two n-bit integers
 
-   ** O(n log n) → Linearithmic Complexity**
+   **O(n log n) → Linearithmic Complexity**
         The completion of the computation grows in a linear pattern with a rate of change of a logarithm
             Examples:
               - Heapsort
               - Mergesort
 
-   ** O(n2) → Quadratic Complexity**
+   **O(n2) → Quadratic Complexity**
           Quadratic Complex Algorithms: performance is directly proportional to the square of the size of the input data set.
             Examples:
               - Multiply two-n-digit numbers
