@@ -47,6 +47,7 @@ Consider the function: f(x)
             Examples:
               - Accessing a data point in a list with a known index 
               - Given two numbers, report the sum
+              
     **O(log n) → Logarithmic Complexity**
         If N was the size of the input, the algorithm will take log(n) steps to solve a problem.
          will use a log with a base of 2 → log2 
@@ -57,6 +58,7 @@ Consider the function: f(x)
           - So, if computing 10 elements take 1 second, computing 100 elements takes 2 seconds, 1000 elements take 3 seconds, and so on.
               - Example:
                   -  Binary Search 
+                  
     **O(n) → Linear Complexity**
         The completion of the algorithm is directly proportional to the size of the input.
         When the running time of an algorithm increases linearly with the length of the input
