@@ -36,7 +36,10 @@ Consider the function: f(x)
   3. **Mathematically Formalizing our Algorithms:** Different hardware will output different runtimes; therefore, we needed a formal mathematical analysis
  
  ### Common Big-o-Notation
+ 
  List from best to worst performance:
+ 
+ 
    **O(1) → Constant Complexity**
         Constant Time Algorithms: Completes the execution in the same amount of time regardless of its input.
         - Where an algorithm's execution time is not based on the input size n
@@ -54,7 +57,6 @@ Consider the function: f(x)
           - So, if computing 10 elements take 1 second, computing 100 elements takes 2 seconds, 1000 elements take 3 seconds, and so on.
               - Example:
                   -  Binary Search 
-
     **O(n) → Linear Complexity**
         The completion of the algorithm is directly proportional to the size of the input.
         When the running time of an algorithm increases linearly with the length of the input
