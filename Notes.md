@@ -81,7 +81,91 @@ Consider the function: f(x)
             Examples:
               - Multiply two-n-digit numbers
               - Bubble, Insertion, Selection Sort
-              
+
+## Recursion 
+  - a method to solve computational problem by relying on smaller instances of a solution to a given problem. 
+  - The logic is that if we have a base case that helps to solves the smaller instance, then the base case solution helps to solve the bigger version of the solution.
+  - calls itself again and again until we hit a base case
+  -  “defining something in terms of itself”
+ 
+ ### Basic idea
+Let P be a problem:
+    Divide P into two or more subproblems (smaller instances)
+    Divide until the subproblems are simple enough to be solved
+    All the subproblem solutions are then combined to give a solution to the original problem
+    This is a basic program solving approach called: 
+        “Divide and Conquer Algorithm”
+    This also leads to the basis of “Dynamic Programming”
+    
+ ### Recursion formula
+1. Base Case (i.e., when to stop)
+2. Work toward Base Case
+    where we make the problem simpler
+3. Recursive Call (i.e., call ourselves)
+
+**HOW DOES IT WORK THOUGH???**
+  - In a recursive algorithm, the computer "remembers" every previous state of the problem
+  - This information is "held" by the computer on the "activation stack" (i.e., inside of each functions workspace).
+  - Every function has its own workspace PER CALL of the function.
+
+#### Developing a base case
+  - The base case should hold the simplest solution for the simplest, smallest instance of the problem
+  - In a recursion algorithm, the problem is broken down to subproblem until we reach the base case
+  - Recursion Algorithms can have **multiple** base cases
+  - Base cases are considered “end conditions”
+ 
+ ### Ex - “From N, add all the numbers below it until 0”
+ ``` python
+ r_sum(n):
+	if n is 0, return 0
+if n is 1, return 1
+	else: return n + r_sum(n-1)
+  ```
+ Visual of how it works^^^
+ r_sum(5) → 5 + r_sum(4)    
+  r_sum(4) → 4 + r_sum(3)
+    r_sum(3) → 3 + r_sum(2)
+      r_sum(2) → 2 + r_sum(1)
+        r_sum(1) → 1
+r_sum(5) → 5 + 10
+  r_sum(4) → 4 + 6
+    r_sum(3) → 3 + 3
+      r_sum(2) → 2 + 1
+        r_sum(1) → 1
+thereforeeeee ans = 15
+
+### Single vs Multiple 
+Single → It only calls itself once … only invokes one recursion to occur
+(Adding up all numbers in a list)
+
+Multiple → It can invoke multiple recursion to solve the answer
+(Fibonacci → Fib(n) = Fib(n-2) + Fib(n-1)
+
+### Direct vs Indirect 
+Let f and g be functions.
+  Direct → f only calls f
+  Indirect → f calls g in which g calls f (can create longer chains)
+    --> Indirect recursion can be also referred to as “mutual recursions”
+    
+### Tail vs Non tail
+  Tail Recursion → The function call is the last thing that a function does.
+  Tail Recursion is more efficient in terms of memory because it only does calculations at the very last recursive call.
+  
+#### Example: Adding all values from N to 1
+``` python
+
+def f(n): # non-tail
+	if n == 1:
+		return n
+	else:
+		return n + f(n-1)
+def g(n, track=0): # tail
+	if n == 0:
+		return track
+	else:
+		return g(n-1, track + n)
+```
+           
 ## Linear Search
   - An algorithm designed to find a target value within a list/dataset
   - Sequentially checks all the items in a list until the target is found
@@ -89,6 +173,10 @@ Consider the function: f(x)
   - At worst, the last object will be the target or the target won’t exist in the list
   - Best Performance → O(1) # First Item
   - Average Performance → O(n/2) = O(n) # Somewhere in the middle of the set, still linear complexity
+
+index() and find() are linear searches
+in and not in membership for strings and lists are linear searches 
+
  ``` python 
  def linear_search1(sequence, target):
     i = 0
@@ -117,22 +205,44 @@ def linear_search2(sequence, target):
     return -1
 # end of linear_search2
 ```
+## Binary Search
+  -  A searching algorithm that is designed to search from a **sorted** list.
+Idea:
+  - Compare the target with the middle most value
+  - If not found, eliminate the half where the target cannot exist 
+  - if search value is LESS than target value --> mid becomes new upper bound ( right)
+  - if search value is GREATER than target value --> mid becomes new lower bond (left)
+Cons:
+  - The database must be comparable and sortable
 
- 
+Big O Notation → O(log n)
+We are splitting the dataset continuously into halves until we hit our target or not find our target
+Very efficient!
+
+``` python
+def binary_search(sequence, target):
+    if not sequence: # empty dataset situation
+        return -1
+    else:
+        left = 0
+        right = len(sequence) - 1
+        while left <= right:
+            middle = (left + right) // 2
+            if sequence[middle] == target:
+                return middle
+            elif sequence[middle] < target:
+                left = middle + 1 # since target greater than value, left is now updated and is new lower bond
+            else: # sequence[middle] > target
+                right = middle - 1 # since target is less than value, right is now updated and new upper bond in array
+        # end of while
+        return -1
+```
+
+questions
+- how do you look at a question and understand if it will be recurssive or not
+- 
+
+
  ### Stack
  --> think of washing dishes --> you start from most top dish to most below --> you wash the last dish added first
- 
- - Last-In first -out structure
- - Attributes: a container that holds multuple dat
-
---> pop remove last added
---> push adss value
-
---> see it the most in "undo feauture" --> every time we click undo we are "popping" last thing added 
---> we use this as every operation is O(1) operator
-
-### Queue
---> first in first out (FIFO) sturcture --> whatever is first gets served first --> opposite of stack
-Methods
-  - enqueue --> adds elements
-  - dequeue --> removes and returns the first/ealirest added element
+\
