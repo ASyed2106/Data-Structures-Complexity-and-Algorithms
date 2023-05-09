@@ -39,8 +39,7 @@ Consider the function: f(x)
  
  List from best to worst performance:
  
- 
-   **O(1) → Constant Complexity**
+   O(1) → Constant Complexity
         Constant Time Algorithms: Completes the execution in the same amount of time regardless of its input.
         - Where an algorithm's execution time is not based on the input size n
         - Whatever be the input size n, the runtime doesn’t change.
@@ -48,32 +47,33 @@ Consider the function: f(x)
               - Accessing a data point in a list with a known index 
               - Given two numbers, report the sum
               
-    **O(log n) → Logarithmic Complexity**
+    O(log n) → Logarithmic Complexity
         If N was the size of the input, the algorithm will take log(n) steps to solve a problem.
          will use a log with a base of 2 → log2 
           - When the input set is continuously divided by two, it is usually a logarithmic complexity algorithm
           - When an algorithm decreases the magnitude of the input data in each step
           - Means that the number of operations is not proportionate to the size of the input.
           - O (log2 n) basically implies that time increases linearly while the value of 'n' increases exponentially.
-          - So, if computing 10 elements take 1 second, computing 100 elements takes 2 seconds, 1000 elements take 3 seconds, and so on.
+          - So, if computing 10 elements take 1 second, computing 100 elements takes 2 seconds, 1000 elements take 3 seconds
               - Example:
                   -  Binary Search 
                   
-    **O(n) → Linear Complexity**
+    O(n) → Linear Complexity
         The completion of the algorithm is directly proportional to the size of the input.
         When the running time of an algorithm increases linearly with the length of the input
-              -  i.e. when a function checks all of the values in an input data set (or needs to iterate once through every value in the input), it is said to have a Time complexity of order O (n).
+              -  i.e. when a function checks all of the values in an input data set 
+                  (or needs to iterate once through every value in the input), it is said to have a Time complexity of order O (n).
               - Search for an item in a list
               - Searching a queue
               - Adding two n-bit integers
-
-   **O(n log n) → Linearithmic Complexity**
+              
+   O(n log n) → Linearithmic Complexity
         The completion of the computation grows in a linear pattern with a rate of change of a logarithm
             Examples:
               - Heapsort
               - Mergesort
-
-   **O(n2) → Quadratic Complexity**
+              
+   O(n2) → Quadratic Complexity
           Quadratic Complex Algorithms: performance is directly proportional to the square of the size of the input data set.
           When the running time of an algorithm increases non-linearly O(n^2) with the length of the input
           In general, nested loops fall into the O(n)*O(n) = O(n^2) time complexity order, where one loop takes O(n) and if the function includes loops inside loops, it takes O(n)*O(n) = O(n^2)
@@ -81,6 +81,30 @@ Consider the function: f(x)
             Examples:
               - Multiply two-n-digit numbers
               - Bubble, Insertion, Selection Sort
+              
+## Linear Search
+  - An algorithm designed to find a target value within a list/dataset
+  - Sequentially checks all the items in a list until the target is found
+**Linear Search → O(n) ; Linear Complexity**
+  - At worst, the last object will be the target or the target won’t exist in the list
+  - Best Performance → O(1) # First Item
+  - Average Performance → O(n/2) = O(n) # Somewhere in the middle of the set, still linear complexity
+ ``` python 
+ def linear_search(sequence, target):
+    ''' # Let L be a list of items; i be the index, and N be the number of items
+    # Let T be a Target
+    Set i to 0, If L at i == Target, then return i
+    Else increase i by 1 and repeat
+    If i > N, and target has not been found, then return -1 '''
+    i = 0
+    while i < len(sequence):
+        if sequence[i] == target:
+            return i
+        i += 1
+    # end of while
+    return -1
+# end of linear_search
+```
 
  
  ### Stack
