@@ -90,20 +90,32 @@ Consider the function: f(x)
   - Best Performance → O(1) # First Item
   - Average Performance → O(n/2) = O(n) # Somewhere in the middle of the set, still linear complexity
  ``` python 
- def linear_search(sequence, target):
-    ''' # Let L be a list of items; i be the index, and N be the number of items
-    # Let T be a Target
-    Set i to 0, If L at i == Target, then return i
-    Else increase i by 1 and repeat
-    If i > N, and target has not been found, then return -1 '''
+ def linear_search1(sequence, target):
     i = 0
     while i < len(sequence):
         if sequence[i] == target:
             return i
         i += 1
     # end of while
+    return -1 # if target NOT in sequence 
+    # end of linear_search1
+    
+def linear_search2(sequence, target):
+    # Park's way of writing this search in Python
+    for i, current_value in enumerate(sequence): # enumerate -->  essentially helps us look at index value???
+    
+        ''' lets say L is [a,b,c] 
+        enumerate([a,b,c]) --> (0, a) , (1, b), (2, c)
+        in our loop ...
+        i --> index
+        current_value --> the value in our sequence
+        '''
+        
+        if target == current_value:
+            return i
+    # end of for loop
     return -1
-# end of linear_search
+# end of linear_search2
 ```
 
  
