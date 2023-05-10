@@ -304,7 +304,10 @@ def select(sequence):
 		- Top-Down Implementation
 		- Bottom-Up Implementation
 	- Complexity of Merge Sort:
-		- O(n log n) Worst Case Performance
+		O(nlogn) → Worst Case Performance
+		O(nlogn) →  Average Case Performance
+		O(nlogn) →  Best Case Performance
+	- Based of big o notation of other sorting algo, merg is the **best** sorting one ( that we learned so far)
 
 ### Conceptually... how does it work???
 	- Divide the unsorted list into n sublists, each containing 1 element (a list of 1 element is considered sorted).
@@ -376,6 +379,113 @@ def combine(a_list, b_list):
 
 ```
 
+### Abstract Data types
+	- In computer science, an abstract data type (ADT) is a mathematical model for data types. 
+	- An abstract data type is defined by its behavior (semantics) from the point of view of a user, of the data, specifically in terms of possible values, possible 		operations on data of this type, and the behavior of these operations.”
+
+## Stack
+	- A Last-In First-Out (LIFO) structure
+	- Attributes: A container that holds multiple data
+	- Methods:
+		Push → Adds Element
+		Pop → Removes the most recently added Element
+		Peek → Look at the most recent element
+	- Optional: Size(), Empty()
+
+All of stack operations are O(1) with Space complexity being O(n)
+
+#### Application
+	- Reverse Word
+	- “Undo” feature
+	- Backtracking
+		- A problem solving technique that tries all possible solutions by building upon smaller instances, removes impossible pathways which then it “backtracks” so that it is not impossible anymore.
+	- Language Processing
+	- Depth First Search
+#### Code
+```python
+class Stack:
+    def __init__(self):
+        self.__stack = []
+        self.size = 0
+        self.isEmpty = True
+
+    def push(self, value):
+        self.__stack.append(value)
+        self.size += 1
+        self.isEmpty = False
+
+    def peek(self):
+        if self.size > 0:
+            return self.__stack[-1]
+        else:
+            return None
+
+    def remove(self): # this should be called pop
+        if self.size == 0:
+            return None
+        elif self.size == 1:
+            self.size -= 1
+            self.isEmpty = True
+            return self.__stack.pop() # .pop() is a built in method for lists, which removes the last value of a list and returns the removed value
+        else:
+            self.size -= 1
+            return self.__stack.pop()
+# end of stack
+```
+
+## Queue
+	- A First-In First-Out (FIFO) structure
+	- Attributes: A container that holds multiple data
+	- Methods:
+		Enqueue → Adds Element
+		Dequeue → Removes and Return the first/earliest added Element
+		Peek → Look at the first element
+	- Optional: Size(), Empty()
+
+All of queue operations are O(1) with Space complexity being O(n)
+
+#### Application
+	- Serving requests on a single shared resource, like a printer, CPU task scheduling etc
+	- Call Center phone systems uses Queues
+	- Handling of interrupts in real-time systems.
+	- The interrupts are handled in the same order as they arrive i.e First come first served.
+	- Breadth First Search
+
+#### Code
+``` python
+class Queue:
+    def __init__(self):
+        self.__queue = []
+        self.size = 0
+        self.isEmpty = True
+        self.pointer = 0
+
+    def enqueue(self, value):
+        self.__queue.append(value)
+        self.size += 1
+        self.isEmpty = False
+
+    def peek(self):
+        if self.size == 0:
+            return None
+        else:
+            return self.__queue[self.pointer]
+    
+    def dequeue(self):
+        if self.size == 0:
+            return None
+        elif self.size == 1:
+            self.size -= 1
+            self.isEmpty = True
+            result = self.__queue[self.pointer]
+            self.pointer +=1
+            return result
+        else:
+            self.size -= 1
+            result = self.__queue[self.pointer]
+            self.pointer +=1
+            return result
+```
 
 
 ### Questions
