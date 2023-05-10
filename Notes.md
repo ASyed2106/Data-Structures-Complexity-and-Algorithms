@@ -486,19 +486,19 @@ class Queue:
             self.pointer +=1
             return result
 ```
-
-
-### Questions
-	- which out of the three is the fastest
-	-  Why is one faster than others? Is there a size of the input where the efficiency differs?
-	- What are the key differences of each sorting algorithms? What do you think their Big O Notations are? ** look at mr park notes**
-
-
-questions
-- how do you look at a question and understand if it will be recurssive or not
-- which is better, bubble or insertion --> both have same big o notation so 
-- 
-
+Python's Sorting Algorithm Variation
+*** let a be and array***
+	- sorting methods specfic to python 
+	a.sort()
+		(i) Sorts the array in-place 
+		(ii) Return type is None
+		(iii) Occupies less space. No copy created as it directly sorts the original array
+		(iv) Faster than sorted(a)
+	sorted(a)
+		(i) Creates a new list from the old & returns the new one, sorted
+		(ii) Return type is a list
+		(iii) Occupies more space as copy of original array is created and then sorting is done
+		(iv) Slower than a.sort()
 
  ### Stack
  --> think of washing dishes --> you start from most top dish to most below --> you wash the last dish added first
