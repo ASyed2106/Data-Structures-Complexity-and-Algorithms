@@ -237,6 +237,69 @@ def binary_search(sequence, target):
         # end of while
         return -1
 ```
+# Simplistic Sorting
+
+## Bubble Sorting 
+	- based upon comparing pairs of values and swapping their places if necessary
+	- Overall Idea: (L→ List, i→ index)
+			- Look at L[i] and L[i-1] if they are not sorted, swap locations
+			- Repeat as you increase i and until no swap occurs
+``` python
+def bubble(sequence):
+    # it is a mutating function for lists
+    if not sequence: # checking if it is empty
+        return []
+    else:
+        swap = True
+        while swap:
+            swap = False # this is for so after for loop is down below the while loop ends 
+            for i in range(1, len(sequence)): 
+                if sequence[i-1] > sequence[i]:
+                    # in python do this: # this is how you swap values of two variables
+                    sequence[i-1] , sequence[i] = sequence[i], sequence[i-1]
+                    swap = True
+        return sequence # optional since this function mutates the given list
+```
+## Insertion Sort
+	- algorithm that iterates and sorts from the bottom one element at a time.
+	- Overall Idea: 
+		- Since a singleton list is already sorted, it will grow its “sorted” list with the next value from the list
+		- It grabs the next value, removes it, and places in the correct location
+		- It does this until the list is fully sorted
+``` python
+def insertion(sequence):
+    if not sequence:
+        return []
+    else:
+        for i in range(1, len(sequence)):
+            for j in range(i, 0, -1):
+                if sequence[j-1] > sequence[j]:
+                    sequence[j-1] , sequence[j] = sequence[j] , sequence[j-1] # swap
+                else:
+                    break # we dont need to do any swaps; therefore, we break out of inner for
+        # end of outer for loop
+        return sequence # this is optional since, this function mutate
+```
+## Selection Sort
+	- algorithm that uses two lists: sorted list and unsorted list. It brings the values to the sorted list in a sorted way
+	- Overall Idea: 
+		- At beginning, sorted list is empty and unsorted list is full
+		- Choose the smaller(or largest) value from the unsorted list, and append it to the sorted list
+		- Repeat until unsorted list is empty
+``` python
+def select(sequence):
+    if not sequence:
+        return []
+    else:
+        result = [] # our sorted list
+        while sequence: # while the list has values
+            smallest = min(sequence)
+            sequence.remove(smallest)
+            result.append(smallest)
+        return result # this is not optional as this function returns a new list
+```
+
+
 
 questions
 - how do you look at a question and understand if it will be recurssive or not
