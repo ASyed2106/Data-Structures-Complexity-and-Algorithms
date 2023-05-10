@@ -301,8 +301,15 @@ def select(sequence):
 
 
 
+### Questions
+	- which out of the three is the fastest
+	-  Why is one faster than others? Is there a size of the input where the efficiency differs?
+	- What are the key differences of each sorting algorithms? What do you think their Big O Notations are? ** look at mr park notes**
+
+
 questions
 - how do you look at a question and understand if it will be recurssive or not
+- which is better, bubble or insertion --> both have same big o notation so 
 - 
 
 
