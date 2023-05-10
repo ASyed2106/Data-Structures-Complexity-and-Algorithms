@@ -1,4 +1,4 @@
-# Data Structures
+# Complexity and Algorithms
 
 ## Run Time 
   - When we are creating a solution for a problem we can be hindered by the efficency of our solution
@@ -165,7 +165,26 @@ def g(n, track=0): # tail
 	else:
 		return g(n-1, track + n)
 ```
-           
+### Inefficiency of some recursive algorithms
+
+- Recursive algorithms are often inefficient for small data, due to the overhead(costs) of repeated function calls and return
+	-  This overhead includes the cost of maintaining the call stack and allocating memory for the recursive calls.
+- A recursive program has greater space requirements than an iterative program as each function call will remain in the stack until the base case is reached.
+- Recursive programs can fail to terminate.
+	- Remember that your function must have code that handles the termination conditions. That is, there must be some way for the function to exit without calling itself again.
+	
+##### **Stack overflow:**
+-  One of the most common dangers of recursion is the possibility of a stack overflow. If a recursive function calls itself too many times without returning, the call stack can fill up and cause a stack overflow error. This can result in a crash or other unpredictable behavior.
+
+#### **Infinite recursion**:
+-  Another danger is infinite recursion, where a recursive function calls itself indefinitely without any base case or termination condition. This can also result in a stack overflow error or an infinite loop that consumes all available system resources and crashes the program.
+
+#### **Memory consumption:** 
+- Recursion can also consume a lot of memory if not implemented properly. Each recursive call creates a new stack frame, which can quickly add up and consume a significant amount of memory. This can be a problem for large or deeply nested recursive functions.
+
+#### **Performance issues:**
+- Recursive algorithms can be less efficient than iterative algorithms for certain problems due to the overhead of managing the call stack and the potential for redundant computations. In some cases, a non-recursive approach may be more efficient and less prone to performance issues.
+
 ## Linear Search
   - An algorithm designed to find a target value within a list/dataset
   - Sequentially checks all the items in a list until the target is found
