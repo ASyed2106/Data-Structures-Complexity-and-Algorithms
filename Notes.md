@@ -313,19 +313,70 @@ def select(sequence):
 
 ### Visual example
 
-| 2 | 8 | 5 | 3 | 9 | 4 | 1 | 7 | - unsorted
+| 2 | 8 | 5 | 3 | 9 | 4 | 1 | 7 | > unsorted
 
-| 2 | 8 | 5 | 3 | 	| 9 | 4 | 1 | 7 | - spliting into 2 arrays
+| 2 | 8 | 5 | 3 |	----	| 9 | 4 | 1 | 7 | > spliting into 2 arrays
 
-| 2 | 8 |	| 5 | 3 |	| 9 | 4 |	| 1 | 7 | - split it into 4 arrays
+| 2 | 8 |	----	| 5 | 3 |	----	| 9 | 4 |	----	| 1 | 7 | > split it into 4 arrays
 
-| 2 |	| 8 |	| 5 |	| 3 |	| 9 |	| 4 |	| 1 |	| 7 | - split it into 8 arrays
+| 2 |	----	| 8 |	----	| 5 |	----	| 3 |	----	| 9 |	----	| 4 |	----	| 1 |	----	| 7 | > split it into 8 arrays
 
-| 2 | 8 |	| 3 | 5 |	| 4 | 9 |	| 1 | 7 | - looked at each group of 2 arrays and combined in terms of smallest to biggest
+| 2 | 8 |	----	| 3 | 5 |	----	| 4 | 9 |	----	| 1 | 7 | > looked at each group of 2 arrays and combined in terms of smallest to biggest
 
-| 2 | 3 | 5 | 8 | 	| 1 | 4 | 7 | 9 | - looked at each group of 2 arrays and merged into 1 array from smallest to biggest
+| 2 | 3 | 5 | 8 | 	----	| 1 | 4 | 7 | 9 | -> looked at each group of 2 arrays and merged into 1 array from smallest to biggest
 
-| 1 | 2 | 3 | 4 | 5 | 7 | 8| 9 | - looked at two arrays and made one final array from smallest to biggest
+| 1 | 2 | 3 | 4 | 5 | 7 | 8| 9 | > looked at two arrays and made one final array from smallest to biggest
+
+### Code
+``` python
+def divide(a_list):
+    if len(a_list) < 2: # base case
+        return a_list 
+
+    midpoint = len(a_list) // 2
+    left = a_list[:midpoint]
+    right = a_list[midpoint:]
+
+    left = divide(left)
+    right = divide(right)
+
+    return combine(left, right)
+
+def combine(a_list, b_list):
+    if not a_list and not b_list: # both list are empty
+        return []
+    elif not a_list: # b_list is not empty but a_list is
+        return b_list
+    elif not b_list # a_list is not empty but b_list is
+        return a_list
+
+    i = 0 # i is index for a_list
+    j = 0 # j is index for b_list
+    combined_list = []
+    while i < len(a_list) and j < len(b_list):
+        if a_list[i] < b_list[j]:
+            combined_list.append(a_list[i])
+            i += 1
+        elif a_list[i] > b_list[j]:
+            combined_list.append(b_list[j])
+            j += 1
+        else: # at both index i and j, the values are equal
+            combined_list.append(a_list[i])
+            combined_list.append(b_list[j])
+            i += 1
+            j += 1
+    # end of while
+    if i == len(a_list) and j < len(b_list):
+        combined_list += b_list[j:]
+
+    if j == len(b_list) and i < len(a_list):
+        combined_list += a_list[i:]
+
+    return combined_list
+
+```
+
+
 
 ### Questions
 	- which out of the three is the fastest
