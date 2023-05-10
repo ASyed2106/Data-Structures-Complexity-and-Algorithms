@@ -298,8 +298,34 @@ def select(sequence):
             result.append(smallest)
         return result # this is not optional as this function returns a new list
 ```
+## Merge Sort
+	- A comparison-based algorithm that sorts a given dataset. It is classified as a “divide and conquer” algorithm
+	- There are 2 approaches to implementing a merge sort:
+		- Top-Down Implementation
+		- Bottom-Up Implementation
+	- Complexity of Merge Sort:
+		- O(n log n) Worst Case Performance
 
+### Conceptually... how does it work???
+	- Divide the unsorted list into n sublists, each containing 1 element (a list of 1 element is considered sorted).
+	- Repeatedly merge sublists to produce new sorted sublists until there is only 1 sublist remaining. This will be the sorted list.
+	*** uses recurssion ***
 
+### Visual example
+
+| 2 | 8 | 5 | 3 | 9 | 4 | 1 | 7 | - unsorted
+
+| 2 | 8 | 5 | 3 | 	| 9 | 4 | 1 | 7 | - spliting into 2 arrays
+
+| 2 | 8 |	| 5 | 3 |	| 9 | 4 |	| 1 | 7 | - split it into 4 arrays
+
+| 2 |	| 8 |	| 5 |	| 3 |	| 9 |	| 4 |	| 1 |	| 7 | - split it into 8 arrays
+
+| 2 | 8 |	| 3 | 5 |	| 4 | 9 |	| 1 | 7 | - looked at each group of 2 arrays and combined in terms of smallest to biggest
+
+| 2 | 3 | 5 | 8 | 	| 1 | 4 | 7 | 9 | - looked at each group of 2 arrays and merged into 1 array from smallest to biggest
+
+| 1 | 2 | 3 | 4 | 5 | 7 | 8| 9 | - looked at two arrays and made one final array from smallest to biggest
 
 ### Questions
 	- which out of the three is the fastest
