@@ -185,6 +185,9 @@ def g(n, track=0): # tail
 #### **Performance issues:**
 - Recursive algorithms can be less efficient than iterative algorithms for certain problems due to the overhead of managing the call stack and the potential for redundant computations. In some cases, a non-recursive approach may be more efficient and less prone to performance issues.
 
+#### **Lack of tail-recursion optimization: **
+In some programming languages, recursive functions may not be optimized for tail recursion, which can lead to stack overflow errors for deep or nested recursion.
+
 ## Linear Search
   - An algorithm designed to find a target value within a list/dataset
   - Sequentially checks all the items in a list until the target is found
